@@ -1,0 +1,22 @@
+{
+  "name": "associations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "glog": "git log --decorate --graph --oneline --all",
+    "start-container": "docker run --rm --name master32-mysql -dp 3306:3306 -v m32-mysql-config:/etc -v m32-mysql-data:/var/lib/mysql mysql/mysql-server:latest",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.15.0"
+  }
+}
