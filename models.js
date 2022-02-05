@@ -7,6 +7,10 @@ const Capital = connection.define("capital",
             type: DataTypes.STRING,
             unique: true
         },
+        citySize: {
+            type: DataTypes.INTEGER,
+            unique: false
+        }
     }, 
 );
 
@@ -19,7 +23,23 @@ const Country = connection.define("country",
     }, 
 );
 
+const City = connection.define("city", 
+    {
+        cityName: {
+            type: DataTypes.STRING,
+            unique: true
+        },
+        citySize: {
+            type: DataTypes.INTEGER,
+            unique: false
+        }
+    }
+);
+
 Country.hasOne(Capital);
 Capital.belongsTo(Country);
 
-module.exports = {Country, Capital}
+Country.hasMany(City);
+City.belongsTo(Country);
+
+module.exports = {Country, Capital, City}
